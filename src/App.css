@@ -1,0 +1,132 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header, footer {
+  background-color: var(--header-footer-bg-color);
+  color: var(--header-footer-text-color);
+  padding: 10px;
+  text-align: center;
+}
+
+footer {
+  margin-top: auto;
+}
+
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+.task-controls, .filter-controls {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.task-controls input, .filter-controls input {
+  margin-bottom: 10px;
+}
+
+/* Duyarlı tasarım için medya sorguları */
+@media (max-width: 768px) {
+  .task-controls, .filter-controls {
+    flex-direction: column;
+  }
+
+  .task-controls input, .filter-controls input {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  header, footer {
+    font-size: 14px;
+    padding: 5px;
+  }
+
+  main {
+    padding: 10px;
+  }
+}
+
+/* Temalar */
+body.light-theme {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.light-theme .header, 
+body.light-theme .footer, 
+body.light-theme .task-controls,
+body.light-theme .filter-controls {
+  background-color: #f0f0f0;
+  color: #000000;
+}
+
+body.light-theme .task-controls input,
+body.light-theme .filter-controls input,
+body.light-theme .filter-controls select {
+  border: 1px solid #cccccc;
+}
+
+/* Koyu tema (dark theme) */
+body.dark-theme {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-theme .header, 
+body.dark-theme .footer, 
+body.dark-theme .task-controls,
+body.dark-theme .filter-controls {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+
+body.dark-theme .task-controls input,
+body.dark-theme .filter-controls input,
+body.dark-theme .filter-controls select {
+  border: 1px solid #333333;
+}
+
+button {
+  cursor: pointer;
+  background-color: #007bff;
+  color: #ffffff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+/* Buton stili */
+button {
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  margin: 5px;
+  border-radius: 5px; 
+}
+
+button:hover {
+  opacity: 0.8; 
+}

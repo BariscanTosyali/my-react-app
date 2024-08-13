@@ -1,0 +1,148 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "testuser",
+      "password": "password123"
+    },
+    {
+      "id": "31e4",
+      "username": "bariscan",
+      "password": "19283746"
+    },
+    {
+      "id": "9c9d",
+      "username": "dogancan",
+      "password": "91827364"
+    },
+    {
+      "id": "8c2d",
+      "username": "oguzhan",
+      "password": "19283764"
+    },
+    {
+      "id": "0e77",
+      "username": "",
+      "password": ""
+    },
+    {
+      "id": "20e8",
+      "username": "",
+      "password": ""
+    },
+    {
+      "id": "c54e",
+      "username": "",
+      "password": ""
+    },
+    {
+      "id": "9741",
+      "username": "",
+      "password": ""
+    },
+    {
+      "id": "d32b",
+      "username": "",
+      "password": ""
+    },
+    {
+      "id": "a1d7",
+      "username": "serdar",
+      "password": "11111111"
+    },
+    {
+      "id": "1b59",
+      "username": "",
+      "password": ""
+    }
+  ],
+  "tasks": [
+    {
+      "id": "5261",
+      "text": "meet with friends",
+      "category": "Personal",
+      "completed": false,
+      "username": "bariscan"
+    },
+    {
+      "id": "951f",
+      "text": "complete the 3rd week of your project",
+      "category": "Work",
+      "completed": false,
+      "username": "bariscan"
+    },
+    {
+      "id": "7c19",
+      "text": "mağazaya git",
+      "category": "Work",
+      "completed": false,
+      "username": "oguzhan"
+    },
+    {
+      "id": "907a",
+      "text": "tatile git",
+      "category": "Personal",
+      "completed": false,
+      "username": "oguzhan"
+    },
+    {
+      "id": "5375",
+      "text": "go to gym",
+      "category": "Work",
+      "completed": false,
+      "username": "bariscan"
+    },
+    {
+      "id": "5abf",
+      "text": "go and drink coffee",
+      "category": "Personal",
+      "completed": false,
+      "username": "bariscan"
+    },
+    {
+      "id": "26aa",
+      "text": "nbn",
+      "category": "Personal",
+      "completed": false,
+      "username": "dogancan"
+    },
+    {
+      "id": "8ab9",
+      "text": "itü git",
+      "category": "Work",
+      "completed": false,
+      "username": "dogancan"
+    },
+    {
+      "id": "cec5",
+      "text": "nbnz",
+      "category": "Work",
+      "completed": false,
+      "username": "bariscan"
+    },
+    {
+      "id": "b3d3",
+      "text": "nbnzz",
+      "category": "Work",
+      "completed": false,
+      "username": "bariscan",
+      "reminder": ""
+    },
+    {
+      "id": "9304",
+      "text": "bilardo oyna",
+      "category": "Personal",
+      "completed": false,
+      "username": "serdar",
+      "reminder": "2024-08-08T14:25"
+    },
+    {
+      "id": "bd05",
+      "text": "arka uç geliştir",
+      "category": "Work",
+      "completed": false,
+      "username": "serdar",
+      "reminder": "2024-08-08T14:25"
+    }
+  ]
+}
