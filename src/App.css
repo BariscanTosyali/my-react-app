@@ -1,4 +1,3 @@
-/* Temel Stil */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -71,16 +70,16 @@ footer {
 
 /* Temalar */
 :root {
-  --primary-color-light: #add8e6; /* Açık mavi */
-  --background-color-light: #ffffff; /* Beyaz */
-  --text-color-light: #000000; /* Siyah */
+  --primary-color-light: #add8e6; 
+  --background-color-light: #ffffff; 
+  --text-color-light: #000000; 
 
-  --primary-color-dark: #4b0082; /* Koyu mor */
-  --background-color-dark: #121212; /* Siyah */
-  --text-color-dark: #e0e0e0; /* Beyaz */
+  --primary-color-dark: #4b0082; 
+  --background-color-dark: #121212; 
+  --text-color-dark: #e0e0e0; 
 
-  --button-bg-color: #007bff; /* Buton rengi */
-  --button-text-color: #ffffff; /* Buton yazı rengi */
+  --button-bg-color: #007bff; 
+  --button-text-color: #ffffff; 
 }
 
 body.light-theme {
@@ -101,7 +100,6 @@ body.dark-theme {
   --button-text-color: #000000;
 }
 
-/* Buton Stili */
 button {
   cursor: pointer;
   background-color: var(--button-bg-color);

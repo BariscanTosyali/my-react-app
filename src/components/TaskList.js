@@ -1,5 +1,5 @@
 import React from 'react';
-import './TaskList.css'; // CSS dosyasını import etmeyi unutmayın
+import './TaskList.css'; 
 
 const TaskList = ({ tasks, deleteTask, editTask, completeTask }) => {
   const handleCompleteChange = (task) => {
@@ -20,7 +20,7 @@ const TaskList = ({ tasks, deleteTask, editTask, completeTask }) => {
             onChange={() => handleCompleteChange(task)}
           />
           <span>{task.text}</span>
-          <span> - {task.category}</span> {/* Görev kategorisini gösterir */}
+          <span> - {task.category}</span> {}
           <div className="button-container">
             <button onClick={() => deleteTask(task.id)}>Delete</button>
             <button onClick={() => {

@@ -1,4 +1,3 @@
-/* TaskList Bileşeni için Genel Stil Kuralları */
 ul {
   list-style-type: none;
   padding: 0;
@@ -35,7 +34,6 @@ li button {
   cursor: pointer;
 }
 
-/* Hover ve Diğer Etkileşimler */
 li:hover {
   background-color: var(--task-bg-color-hover);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -45,7 +43,6 @@ li button:hover {
   opacity: 0.8;
 }
 
-/* Tamamlanmış Görevler */
 li.completed {
   text-decoration: line-through;
   opacity: 0.6;
