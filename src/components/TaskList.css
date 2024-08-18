@@ -1,42 +1,53 @@
-.task-list {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .task-item {
-    background: white;
-    margin: 5px 0;
-    padding: 10px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid #ddd;
-  }
-  
-  .task-item.completed .task-text {
-    text-decoration: line-through;
-  }
-  
-  .task-text {
-    flex-grow: 1;
-    cursor: pointer;
-  }
-  
-  .task-category {
-    margin-left: 10px;
-    color: #888;
-  }
-  
-  .edit-button, .delete-button {
-    margin-left: 10px;
-    background-color: #61dafb;
-    border: none;
-    padding: 5px 10px;
-    cursor: pointer;
-    border-radius: 5px;
-  }
-  
-  .edit-button:hover, .delete-button:hover {
-    background-color: #21a1f1;
-  }
+/* TaskList Bileşeni için Genel Stil Kuralları */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background-color: var(--task-bg-color);
+  color: var(--task-text-color);
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+
+li input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+li span {
+  flex: 1;
+}
+
+li button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: var(--button-bg-color);
+  color: var(--button-text-color);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Hover ve Diğer Etkileşimler */
+li:hover {
+  background-color: var(--task-bg-color-hover);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+li button:hover {
+  opacity: 0.8;
+}
+
+/* Tamamlanmış Görevler */
+li.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+

@@ -1,13 +1,22 @@
+/* Temel Stil */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
 }
 
 .App {
+  font-family: 'Roboto', sans-serif;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  background-color: var(--background-color);
+  color: var(--text-color);
   min-height: 100vh;
+  padding: 20px;
 }
 
 header, footer {
@@ -21,9 +30,11 @@ footer {
   margin-top: auto;
 }
 
-main {
-  flex: 1;
-  padding: 20px;
+.main {
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  margin-top: 40px;
 }
 
 .task-controls, .filter-controls {
@@ -36,7 +47,7 @@ main {
   margin-bottom: 10px;
 }
 
-/* Duyarlı tasarım için medya sorguları */
+/* Duyarlı Tasarım (Responsive Design) için Medya Sorguları */
 @media (max-width: 768px) {
   .task-controls, .filter-controls {
     flex-direction: column;
@@ -53,80 +64,87 @@ main {
     padding: 5px;
   }
 
-  main {
+  .main {
     padding: 10px;
   }
 }
 
 /* Temalar */
+:root {
+  --primary-color-light: #add8e6; /* Açık mavi */
+  --background-color-light: #ffffff; /* Beyaz */
+  --text-color-light: #000000; /* Siyah */
+
+  --primary-color-dark: #4b0082; /* Koyu mor */
+  --background-color-dark: #121212; /* Siyah */
+  --text-color-dark: #e0e0e0; /* Beyaz */
+
+  --button-bg-color: #007bff; /* Buton rengi */
+  --button-text-color: #ffffff; /* Buton yazı rengi */
+}
+
 body.light-theme {
-  background-color: #ffffff;
-  color: #000000;
+  --background-color: #00ff88;
+  --text-color: #ffffff;
+  --header-footer-bg-color: #005822;
+  --header-footer-text-color: #ffffff;
+  --button-bg-color: #005822;
+  --button-text-color: #ffffff;
 }
 
-body.light-theme .header, 
-body.light-theme .footer, 
-body.light-theme .task-controls,
-body.light-theme .filter-controls {
-  background-color: #f0f0f0;
-  color: #000000;
-}
-
-body.light-theme .task-controls input,
-body.light-theme .filter-controls input,
-body.light-theme .filter-controls select {
-  border: 1px solid #cccccc;
-}
-
-/* Koyu tema (dark theme) */
 body.dark-theme {
-  background-color: #121212;
-  color: #e0e0e0;
+  --background-color: #121212;
+  --text-color: #e0e0e0;
+  --header-footer-bg-color: #4b0082;
+  --header-footer-text-color: #000000;
+  --button-bg-color: #4b0082;
+  --button-text-color: #000000;
 }
 
-body.dark-theme .header, 
-body.dark-theme .footer, 
-body.dark-theme .task-controls,
-body.dark-theme .filter-controls {
-  background-color: #1e1e1e;
-  color: #e0e0e0;
-}
-
-body.dark-theme .task-controls input,
-body.dark-theme .filter-controls input,
-body.dark-theme .filter-controls select {
-  border: 1px solid #333333;
-}
-
+/* Buton Stili */
 button {
   cursor: pointer;
-  background-color: #007bff;
-  color: #ffffff;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-body {
-  background-color: var(--background-color);
-  color: var(--text-color);
-}
-
-/* Buton stili */
-button {
   background-color: var(--button-bg-color);
   color: var(--button-text-color);
   border: none;
   padding: 10px;
-  cursor: pointer;
+  border-radius: 5px;
   margin: 5px;
-  border-radius: 5px; 
 }
 
 button:hover {
-  opacity: 0.8; 
+  opacity: 0.8;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid var(--primary-color);
+}
+
+li span {
+  margin-left: 10px;
+}
+
+li button {
+  margin-left: 10px;
+}
+
+/* TaskList İçin Stil */
+.task-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  margin: 10px 0;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  border-radius: 5px;
 }

@@ -1,5 +1,5 @@
-
 import React from 'react';
+import './TaskList.css'; // CSS dosyasını import etmeyi unutmayın
 
 const TaskList = ({ tasks, deleteTask, editTask, completeTask }) => {
   const handleCompleteChange = (task) => {
@@ -13,7 +13,7 @@ const TaskList = ({ tasks, deleteTask, editTask, completeTask }) => {
   return (
     <ul>
       {tasks.map(task => (
-        <li key={task.id} style={{ textDecoration: task.completed ? 'line-through' : 'none' }}>
+        <li key={task.id} className={task.completed ? 'completed' : ''}>
           <input
             type="checkbox"
             checked={task.completed}
@@ -21,13 +21,15 @@ const TaskList = ({ tasks, deleteTask, editTask, completeTask }) => {
           />
           <span>{task.text}</span>
           <span> - {task.category}</span> {/* Görev kategorisini gösterir */}
-          <button onClick={() => deleteTask(task.id)}>Delete</button>
-          <button onClick={() => {
-            const newText = prompt('Edit task:', task.text);
-            if (newText) {
-              handleEditChange(task, newText);
-            }
-          }}>Edit</button>
+          <div className="button-container">
+            <button onClick={() => deleteTask(task.id)}>Delete</button>
+            <button onClick={() => {
+              const newText = prompt('Edit task:', task.text);
+              if (newText) {
+                handleEditChange(task, newText);
+              }
+            }}>Edit</button>
+          </div>
         </li>
       ))}
     </ul>

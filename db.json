@@ -54,23 +54,19 @@
       "id": "1b59",
       "username": "",
       "password": ""
+    },
+    {
+      "id": "9fe4",
+      "username": "turan",
+      "password": "11111111"
+    },
+    {
+      "id": "6086",
+      "username": "ece",
+      "password": "ece123"
     }
   ],
   "tasks": [
-    {
-      "id": "5261",
-      "text": "meet with friends",
-      "category": "Personal",
-      "completed": false,
-      "username": "bariscan"
-    },
-    {
-      "id": "951f",
-      "text": "complete the 3rd week of your project",
-      "category": "Work",
-      "completed": false,
-      "username": "bariscan"
-    },
     {
       "id": "7c19",
       "text": "mağazaya git",
@@ -84,20 +80,6 @@
       "category": "Personal",
       "completed": false,
       "username": "oguzhan"
-    },
-    {
-      "id": "5375",
-      "text": "go to gym",
-      "category": "Work",
-      "completed": false,
-      "username": "bariscan"
-    },
-    {
-      "id": "5abf",
-      "text": "go and drink coffee",
-      "category": "Personal",
-      "completed": false,
-      "username": "bariscan"
     },
     {
       "id": "26aa",
@@ -114,21 +96,6 @@
       "username": "dogancan"
     },
     {
-      "id": "cec5",
-      "text": "nbnz",
-      "category": "Work",
-      "completed": false,
-      "username": "bariscan"
-    },
-    {
-      "id": "b3d3",
-      "text": "nbnzz",
-      "category": "Work",
-      "completed": false,
-      "username": "bariscan",
-      "reminder": ""
-    },
-    {
       "id": "9304",
       "text": "bilardo oyna",
       "category": "Personal",
@@ -143,6 +110,22 @@
       "completed": false,
       "username": "serdar",
       "reminder": "2024-08-08T14:25"
+    },
+    {
+      "id": "a63d",
+      "text": "wqpldqwldqwdq",
+      "category": "Work",
+      "completed": false,
+      "username": "bariscan",
+      "reminder": ""
+    },
+    {
+      "id": "36d8",
+      "text": "qwd",
+      "category": "Work",
+      "completed": false,
+      "username": "bariscan",
+      "reminder": ""
     }
   ]
 }
