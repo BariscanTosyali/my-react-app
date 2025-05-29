@@ -3,13 +3,18 @@
   margin: 0 auto;
   padding: 20px;
   border: 1px solid #ddd;
-  border-radius: 4px;
+  border-radius: 8px;
   background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .login-form h2 {
   margin-bottom: 20px;
   text-align: center;
+  color: #2c3e50;
+  font-size: 24px;
+  font-weight: 600;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 .login-form input {
@@ -40,5 +45,33 @@
 
 .toggle-button:hover {
   text-decoration: underline;
+}
+
+/* Tema desteği */
+.dark-theme .login-form {
+  background-color: #2c3e50;
+  border-color: #34495e;
+}
+
+.dark-theme .login-form h2 {
+  color: #ecf0f1;
+}
+
+.dark-theme .login-form input {
+  background-color: #34495e;
+  border-color: #445566;
+  color: #ecf0f1;
+}
+
+.dark-theme .login-form input::placeholder {
+  color: #95a5a6;
+}
+
+.dark-theme .login-form button {
+  background-color: #3498db;
+}
+
+.dark-theme .login-form button:hover {
+  background-color: #2980b9;
 }
 
