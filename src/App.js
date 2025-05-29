@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { auth } from './firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import TaskList from './components/TaskList';
@@ -13,7 +15,6 @@ function App() {
   const [filter, setFilter] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
   const [user, setUser] = useState(null);
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [theme, setTheme] = useState('light-theme');
 
   useEffect(() => {
@@ -21,31 +22,30 @@ function App() {
     setTheme(storedTheme);
     document.body.className = storedTheme;
 
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      const user = JSON.parse(storedUser);
-      setUser(user);
-      setIsAuthenticated(true);
-      const fetchTasks = async () => {
-        try {
-          const response = await fetch(`http://localhost:5000/tasks?username=${user.username}`);
-          const savedTasks = await response.json();
-          setTasks(savedTasks);
-        } catch (error) {
-          console.error('Error:', error);
-        }
-      };
-      fetchTasks();
-    }
+    // Firebase auth state listener
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+        // Fetch tasks for the user
+        fetchTasks(user.uid);
+      } else {
+        setUser(null);
+        setTasks([]);
+      }
+    });
 
-    if (Notification.permission !== 'granted') {
-      Notification.requestPermission().then(permission => {
-        if (permission !== 'granted') {
-          alert('You need to allow notifications for reminders to work.');
-        }
-      });
-    }
+    return () => unsubscribe();
   }, []);
+
+  const fetchTasks = async (userId) => {
+    try {
+      const response = await fetch(`https://your-backend-url.com/tasks?userId=${userId}`);
+      const savedTasks = await response.json();
+      setTasks(savedTasks);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+  };
 
   const handleThemeChange = () => {
     const newTheme = theme === 'light-theme' ? 'dark-theme' : 'light-theme';
@@ -54,53 +54,18 @@ function App() {
     localStorage.setItem('theme', newTheme);
   };
 
-  const handleLogin = async (username, password) => {
-    try {
-      const response = await fetch('http://localhost:5000/users');
-      const users = await response.json();
-      const user = users.find(u => u.username === username && u.password === password);
-      if (user) {
-        setUser(user);
-        setIsAuthenticated(true);
-        localStorage.setItem('user', JSON.stringify(user));
-        const response = await fetch(`http://localhost:5000/tasks?username=${user.username}`);
-        const savedTasks = await response.json();
-        setTasks(savedTasks);
-      } else {
-        alert('Invalid credentials');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
+  const handleLogin = (user) => {
+    setUser(user);
   };
 
-  const handleSignup = async (username, password) => {
-    if (!username || !password) {
-      alert('Username and password fields cannot be empty.');
-      return;
-    }
-  
+  const handleLogout = async () => {
     try {
-      const response = await fetch('http://localhost:5000/users', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
-      });
-      if (response.ok) {
-        handleLogin(username, password);
-      } else {
-        alert('Signup failed');
-      }
+      await auth.signOut();
+      setUser(null);
+      setTasks([]);
     } catch (error) {
-      console.error('Error:', error);
+      console.error('Logout error:', error);
     }
-  };
-  
-
-  const handleLogout = () => {
-    setUser(null);
-    setIsAuthenticated(false);
-    localStorage.removeItem('user');
   };
 
   const addTask = async () => {
@@ -189,7 +154,7 @@ function App() {
         <button onClick={handleThemeChange} className="theme-toggle-button">
           Switch to {theme === 'light-theme' ? 'Dark' : 'Light'} Mode
         </button>
-        {isAuthenticated ? (
+        {user ? (
           <>
             <button onClick={handleLogout} className="logout-button">Logout</button>
             <div className="task-controls">
@@ -237,7 +202,7 @@ function App() {
             />
           </>
         ) : (
-          <LoginForm onLogin={handleLogin} onSignup={handleSignup} />
+          <LoginForm onLogin={handleLogin} />
         )}
       </main>
       <Footer />

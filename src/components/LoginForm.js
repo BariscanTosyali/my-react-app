@@ -1,31 +1,47 @@
 import React, { useState } from 'react';
+import { auth } from '../firebase';
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth';
 import './LoginForm.css';
 
-const LoginForm = ({ onLogin, onSignup }) => {
-  const [username, setUsername] = useState('');
+const LoginForm = ({ onLogin }) => {
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-  // Giriş işlemini gerçekleştiren fonksiyon
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Formun varsayılan submit davranışını durdurur
-    onLogin(username, password); // OnLogin fonksiyonunu tetikler
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setError('');
+    
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      onLogin(userCredential.user);
+    } catch (error) {
+      setError('Login failed: ' + error.message);
+    }
   };
 
-  // Kayıt olma işlemini gerçekleştiren fonksiyon
-  const handleSignup = (e) => {
-    e.preventDefault(); // Formun varsayılan submit davranışını durdurur
-    onSignup(username, password); // OnSignup fonksiyonunu tetikler
+  const handleSignup = async (e) => {
+    e.preventDefault();
+    setError('');
+
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      onLogin(userCredential.user);
+    } catch (error) {
+      setError('Signup failed: ' + error.message);
+    }
   };
 
   return (
     <div className="login-form">
       <h2>Login or Sign Up</h2>
+      {error && <div className="error-message">{error}</div>}
       <form onSubmit={handleSubmit}>
         <input
-          type="text"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          placeholder="Username"
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
           required
         />
         <input
