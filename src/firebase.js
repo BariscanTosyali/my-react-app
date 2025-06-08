@@ -3,12 +3,13 @@ import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
   // Firebase console'dan alacağınız config bilgileri buraya gelecek
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_AUTH_DOMAIN",
-  projectId: "YOUR_PROJECT_ID",
-  storageBucket: "YOUR_STORAGE_BUCKET",
-  messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyBIZ6YUhn14n-QhOuhxafd7jonAkpDjWzM",
+  authDomain: "my-react-app-a6d16.firebaseapp.com",
+  projectId: "my-react-app-a6d16",
+  storageBucket: "my-react-app-a6d16.firebasestorage.app",
+  messagingSenderId: "183794677158",
+  appId: "1:183794677158:web:6880a35ef218964cbc4b67",
+  measurementId: "G-P01FNZ6STF"
 };
 
 const app = initializeApp(firebaseConfig);
