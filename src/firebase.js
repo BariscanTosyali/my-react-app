@@ -22,6 +22,10 @@ let auth;
 
 // Initialize Firebase
 try {
+  if (!firebaseConfig.apiKey || firebaseConfig.apiKey.includes('YOUR_API_KEY')) {
+    throw new Error('Invalid Firebase API Key. Please check your configuration.');
+  }
+
   app = initializeApp(firebaseConfig);
   auth = getAuth(app);
   
